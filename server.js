@@ -37,8 +37,10 @@ app.use('/api/address',addressRouter)
 app.use('/api/payment',paymentRouter)
 
 mongoose.connect(
-  "mongodb+srv://codesnippet02:RitvWpYMQotElP8v@cluster0.tmblrvd.mongodb.net/",{
-    dbName:"MERN_E_Commerce"
+ "mongodb+srv://barapatresourabh:Randi0rton@rex-1.pz8ahot.mongodb.net/",{
+  // "mongodb+srv://codesnippet02:RitvWpYMQotElP8v@cluster0.tmblrvd.mongodb.net/",{
+   
+  dbName:"MERN_E_Commerce"
   }
 ).then(()=>console.log("MongoDB Connected Succssfully...!")).catch((err)=>console.log(err));
 
