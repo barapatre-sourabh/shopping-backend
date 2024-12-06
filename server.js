@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose';
 import bodyParser from 'express'
 import userRouter from './Routes/user.js'
+import adminRouter from './Routes/admin.js'
 import productRouter from './Routes/product.js'
 import cartRouter from './Routes/cart.js'
 import addressRouter from './Routes/address.js'
@@ -10,7 +11,8 @@ import cors from 'cors';
 
 const app = express();
 
-app.use(bodyParser.json())
+app.use(express.json()); // Use express's built-in JSON parser
+
 
 app.use(cors({
   origin:true,
@@ -23,6 +25,10 @@ app.get('/',(req,res)=>res.json({messge:'This is home route'}))
 
 // user Router
 app.use('/api/user',userRouter)
+
+
+// user Router
+app.use('/api/admin',adminRouter)
 
 // product Router
 app.use('/api/product',productRouter)
