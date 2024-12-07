@@ -12,7 +12,7 @@ router.post('/adminLogin',adminLogin)
 // get all admin's
 router.get('/alladmin',admins)
 
-// get admin profile
-router.get("/adminProfile", AuthenticatedA, adminProfile);
+// // get admin profile
+// router.get("/adminProfile", AuthenticatedA, adminProfile);
 
 export default router

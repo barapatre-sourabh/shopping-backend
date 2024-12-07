@@ -1,6 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose';
-import bodyParser from 'express'
+// import bodyParser from 'express'
 import userRouter from './Routes/user.js'
 import adminRouter from './Routes/admin.js'
 import productRouter from './Routes/product.js'
@@ -8,6 +8,11 @@ import cartRouter from './Routes/cart.js'
 import addressRouter from './Routes/address.js'
 import paymentRouter from './Routes/payment.js'
 import cors from 'cors';
+import dotenv from 'dotenv'; // Import dotenv
+
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
@@ -42,13 +47,11 @@ app.use('/api/address',addressRouter)
 // payment Router
 app.use('/api/payment',paymentRouter)
 
-mongoose.connect(
- "mongodb+srv://barapatresourabh:Randi0rton@rex-1.pz8ahot.mongodb.net/",{
-  // "mongodb+srv://codesnippet02:RitvWpYMQotElP8v@cluster0.tmblrvd.mongodb.net/",{
-   
-  dbName:"MERN_E_Commerce"
+// Connect to MongoDB using environment variables
+mongoose.connect(process.env.MONGODB_URL, {
+  dbName: process.env.DB_NAME
   }
 ).then(()=>console.log("MongoDB Connected Succssfully...!")).catch((err)=>console.log(err));
 
-const port = 1000;
+const port = process.env.PORT || 1000;
 app.listen(port,()=>console.log(`Server is running on port ${port}`))
